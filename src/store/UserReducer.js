@@ -1,7 +1,6 @@
-import {LOGIN_SUCCESS,LOGIN_FAILED,USERINFO} from './actionTypes'
+import {LOGIN_FAILED,USERINFO} from './actionTypes'
 
 const initialState = {
-    token:'',
     error:'',
     Name:'',
     designation:''
@@ -9,16 +8,9 @@ const initialState = {
 
 export const UserReducer = (state=initialState,action)=>{
     switch(action.type){
-        case LOGIN_SUCCESS:
-            return{
-                ...state,
-                token:action.token,
-                error:''
-            }
         case LOGIN_FAILED:
             return{
                 ...state,
-               token:'',
                error:action.error
             }
         case USERINFO:

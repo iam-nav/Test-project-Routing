@@ -1,30 +1,32 @@
 import React from 'react'
-import { Button,Form } from 'react-bootstrap';
+import { Button} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {connect} from 'react-redux'
-import login from './login';
-import { Redirect } from 'react-router';
+
 
 function Home(props) {
-   function login(){
-   window.location="/Login"
+     
+    function login(){
+     window.location="/Login"
     }
+
+
     return (
-        <div>
-        {props.name===""?<h1>WELCOME GUEST</h1>:<h1>WELCOME {props.name}</h1>}
-        <Button onClick={login} >Login</Button>
+        <div style={{textAlign:"center",marginTop:"10%"}}>
+            {props.name===""?<h1>WELCOME GUEST</h1>:<h1>WELCOME {props.name}</h1>}
+            {props.name===""?<Button onClick={login} >Login</Button>:null}
         </div>
-    )
-}
+            )
+        }
 
   
-const mapStateToProp = state =>{
-    return{
-       name:state.Name,
-       designation:state.designation
-    }
-  }
+        const mapStateToProp = state =>{
+            return{
+                 name:state.Name,
+                 designation:state.designation
+            }
+        }
   
-  export default  connect(mapStateToProp)  (Home) 
+  export default  connect(mapStateToProp)(Home) 
   
   
